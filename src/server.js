@@ -22,7 +22,8 @@ mongoose.connect(
 const db = mongoose.connection;
 db.on("error", () => console.error("connection error"));
 db.once("open",() => {
-    // MIDDLEWARES
+    // MIDDLEWARES because of the syntax "app.use"
+    //      executed per anchor call
     app.use(cors()); //allows for cross domain api's
     app.set("views",__dirname + "/views");
     app.set("view-engine", "ejs");
@@ -44,12 +45,12 @@ db.once("open",() => {
 
     // Post Route AKA CREATE
     const postsRoute = require('./routes/posts');
-    app.use('/post', postsRoute); //Middleware for posts
-
-
+    app.use('/post', postsRoute); 
+   
     // Read Route AKA GET
     const readRoute = require('./routes/reads');
-    app.use('/read', readRoute);
+    app.use('/', readRoute);
+    
 
     // Patch Route AKA UPDATE
     const patchRoute = require('./routes/patches');
@@ -69,5 +70,5 @@ db.once("open",() => {
 
 
 app.listen(port, () => {
-    console.log("Listening on port " + port + "...");
+    console.log("Listening on http://localhost:"+port);
   });

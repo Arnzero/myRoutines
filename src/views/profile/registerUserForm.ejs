@@ -1,7 +1,9 @@
-<%- include('../headerBare.ejs'); %>
+<%- include('../headers/headerAnon.ejs'); %>
+
+<h3> <%=user %> </h3>
 
 <h1 class="formHeader">Register New User</h1>
-<form class="formContainer" action="/register" method="POST">
+<form class="formContainer" action="/post/newUser" method="POST">
     <label class="formElement1-1" for="email">Email Address: </label> 
     <input class="formElement1-2" type="text" name="email" id="email" required="required">
 
@@ -11,28 +13,17 @@
     <label class="formElement3-1" for="lname">Last Name: </label> 
     <input class="formElement3-2" type="text" name="lname" id="lname" required="required">
 
-    <label class="formElement4-1" for="phone">Phone Number: </label> 
-    <input class="formElement4-2" type="text" name="phone" id="phone" >
+    <label class="formElement4-1" for="age">Age (Optional): </label> 
+    <input class="formElement4-2" type="text" name="age" id="age" >
 
-    <label class="formElement5-1" for="department">Organization /Department: </label> 
-    <input class="formElement5-2" type="text" name="department" id="department" >
-
-    <label class="formElement6-1" for="category">User Category: </label> 
-    <select class="formElement6-2" id="category" name="category" required="required">
-        <option value="guest">Guest</option>
-        <option value="student">Student</option>
-        <option value="faculty">Faculty</option>
-        <option value="staff">Staff</option>
-        <option value="classified">Classified</option>
-     </select>
 
     <label class="formElement7-1" for="password">Password: </label>
     <input class="formElement7-2" type="password" name="password" id="password" required="required">
-<!-- 
-    <label class="formElement8-1" for="password">Confirm Password: </label>
-    <input class="formElement8-2" type="password" name="password" id="password" required="required"> -->
-
+    <!--
+    <label class="formElement8-1" for="confPassword">Confirm Password: </label>
+    <input class="formElement8-2" type="text" name="confPassword" id="confPassword" required="required"> 
+    -->
     <input class="formElement9-2 formSubmitButton" type="submit" name="submitButton" id="submitButton" value="Submit">
 </form>
-<%- include('../footer.ejs'); %>
+<%- include('../headers/footer.ejs'); %>
 

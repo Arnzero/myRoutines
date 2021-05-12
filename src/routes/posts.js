@@ -45,14 +45,15 @@ router.post('/newUser', async (req, res) => {
         lname: req.body.lname,
         email: req.body.email,
         age: req.body.age,
-        //password: req.body.password,
+        password: req.body.password,
         role: req.body.role,
         activities: req.body.activities
     });
 
     try{
         const savedUser = await user.save();
-         res.json(savedUser);
+        res.redirect('/')
+         //res.json(savedUser);
     }catch(err){
         res.json({message:err})
     }
