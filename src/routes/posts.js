@@ -4,12 +4,16 @@ const Post = require('../models/Post');
 const User = require('../models/User');
 
 
+// POST new user profile
+
+
+
 //GET ALL USERS
 router.get('/', async (req, res) => {
     try{
         const users = await User.find();
         //res.json(user);
-        res.render("../views/routines/routines.ejs", {users});
+        res.render("../views/routines/routineSetup.ejs", {users});
     }catch(err){
         res.json({message:err})
     }
