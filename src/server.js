@@ -40,29 +40,31 @@ db.once("open",() => {
           next();
     });
 
-    // Import Routes -- 
+    // Let's make a route for each of C.R.U.D.
+
+    // Post Route AKA CREATE
     const postsRoute = require('./routes/posts');
     app.use('/post', postsRoute); //Middleware for posts
 
-    // Let's make a route for each of C.R.U.D.
 
-    // Reads Route AKA GET
+    // Read Route AKA GET
     const readRoute = require('./routes/reads');
     app.use('/read', readRoute);
 
-    // Deletes Route
+    // Patch Route AKA UPDATE
+    const patchRoute = require('./routes/patches');
+    app.use('/patch', patchRoute);
+
+    // Delete Route
     const deleteRoute = require('./routes/deletes');
     app.use('/delete', deleteRoute);
 
-    // Patches Route AKA UPDATE
-    const patchRoute = require('./routes/patches');
-    app.use('/patch', patchRoute);
 
     app.get("/", (req, res) => {
         res.send("We are on on home");
     });     
 
-})
+});
 
 
 
